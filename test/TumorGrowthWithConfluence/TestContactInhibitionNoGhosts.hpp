@@ -52,27 +52,21 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "StemCellProliferativeType.hpp"
 #include "TransitCellProliferativeType.hpp"
 #include "HoneycombMeshGenerator.hpp"
-#include "HoneycombVertexMeshGenerator.hpp"
 #include "OutputFileHandler.hpp"
 #include "GeneralisedLinearSpringForce.hpp"
-#include "NagaiHondaForce.hpp"
 #include "SimpleTargetAreaModifier.hpp"
 #include "SimulationTime.hpp"
 #include "CellLabel.hpp"
 #include "MutableMesh.hpp"
-#include "MutableVertexMesh.hpp"
 #include "PlaneBoundaryCondition.hpp"
 #include "FakePetscSetup.hpp"
 
-#include "CellPopulationCounterWriter.hpp"
+// #include "CellPopulationCounterWriter.hpp"
 #include "CellPopulationAreaWriter.hpp"
 
 #include "CellAncestorWriter.hpp"
 #include "CellIdWriter.hpp"
 
-#include "WildTypeCellMutationState.hpp"
-#include "StemCellProliferativeType.hpp"
-#include "TransitCellProliferativeType.hpp"
 #include "CellProliferativeTypesCountWriter.hpp"
 #include "AbstractCellPopulationBoundaryCondition.hpp"
 #include "CylindricalHoneycombMeshGenerator.hpp"
@@ -284,7 +278,7 @@ public:
         MAKE_PTR_ARGS(MyBoundaryCondition, p_bc, (&cell_population));
 
         cell_population.AddCellPopulationCountWriter<CellMutationStatesCountWriter>();
-        cell_population.AddPopulationWriter<CellPopulationCounterWriter>();
+        // cell_population.AddPopulationWriter<CellPopulationCounterWriter>();
         cell_population.AddPopulationWriter<CellPopulationAreaWriter>();
         cell_population.AddCellPopulationCountWriter<CellProliferativeTypesCountWriter>();
 
@@ -301,7 +295,7 @@ public:
         /* Next, we create a force law (springs) to be applied between cell centres and set up a
          * cut-off length beyond which cells stop interacting. We then pass this to the {{{VolumeTrackedOffLatticeSimulation}}}. */
         MAKE_PTR(GeneralisedLinearSpringForce<2>, p_force);
-        p_force->SetCutOffLength(1.5);
+        p_force->SetCutOffLength(1.1);
         simulator.AddForce(p_force);
 
         simulator.AddCellPopulationBoundaryCondition(p_bc);
