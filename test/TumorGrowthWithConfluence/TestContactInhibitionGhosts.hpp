@@ -62,7 +62,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "PlaneBoundaryCondition.hpp"
 #include "FakePetscSetup.hpp"
 
-#include "CellPopulationCounterWriter.hpp"
+// #include "CellPopulationCounterWriter.hpp"
 #include "CellPopulationAreaWriter.hpp"
 
 #include "CellAncestorWriter.hpp"
@@ -302,7 +302,7 @@ public:
 
 
         cell_population.AddCellPopulationCountWriter<CellMutationStatesCountWriter>();
-        cell_population.AddPopulationWriter<CellPopulationCounterWriter>();
+        // cell_population.AddPopulationWriter<CellPopulationCounterWriter>();
         cell_population.AddPopulationWriter<CellPopulationAreaWriter>();
         cell_population.AddCellPopulationCountWriter<CellProliferativeTypesCountWriter>();       
 
@@ -327,7 +327,7 @@ public:
         simulator.AddCellPopulationBoundaryCondition(p_bc);
 
         simulator.SetDt(0.01);
-        simulator.SetOutputDirectory("TestContactInhibitionWithMyBoundary");
+        simulator.SetOutputDirectory("TestContactInhibitionWithGhosts");
         simulator.SetSamplingTimestepMultiple(10);
         simulator.SetEndTime(120.0);
         auto t1 = std::chrono::high_resolution_clock::now();
