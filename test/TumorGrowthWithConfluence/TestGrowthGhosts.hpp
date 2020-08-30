@@ -326,7 +326,7 @@ public:
         simulator.SetDt(0.01);
         simulator.SetOutputDirectory("TestGrowthWithGhosts");
         simulator.SetSamplingTimestepMultiple(10);
-        simulator.SetEndTime(100.0);
+        simulator.SetEndTime(60.0);
         auto t1 = std::chrono::high_resolution_clock::now();
         simulator.Solve();
         auto t2 = std::chrono::high_resolution_clock::now();
