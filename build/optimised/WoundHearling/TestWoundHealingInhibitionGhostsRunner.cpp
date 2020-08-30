@@ -22,11 +22,11 @@ int main( int argc, char *argv[] ) {
 static TestRunningContactInhibitionSimulationsTutorial suite_TestRunningContactInhibitionSimulationsTutorial;
 
 static CxxTest::List Tests_TestRunningContactInhibitionSimulationsTutorial = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_TestRunningContactInhibitionSimulationsTutorial( "projects/GhostNodes/test/WoundHearling/TestWoundHealingInhibitionGhosts.hpp", 244, "TestRunningContactInhibitionSimulationsTutorial", suite_TestRunningContactInhibitionSimulationsTutorial, Tests_TestRunningContactInhibitionSimulationsTutorial );
+CxxTest::StaticSuiteDescription suiteDescription_TestRunningContactInhibitionSimulationsTutorial( "projects/GhostNodes/test/WoundHearling/TestWoundHealingInhibitionGhosts.hpp", 248, "TestRunningContactInhibitionSimulationsTutorial", suite_TestRunningContactInhibitionSimulationsTutorial, Tests_TestRunningContactInhibitionSimulationsTutorial );
 
 static class TestDescription_TestRunningContactInhibitionSimulationsTutorial_TestContactInhibitionInBox : public CxxTest::RealTestDescription {
 public:
- TestDescription_TestRunningContactInhibitionSimulationsTutorial_TestContactInhibitionInBox() : CxxTest::RealTestDescription( Tests_TestRunningContactInhibitionSimulationsTutorial, suiteDescription_TestRunningContactInhibitionSimulationsTutorial, 248, "TestContactInhibitionInBox" ) {}
+ TestDescription_TestRunningContactInhibitionSimulationsTutorial_TestContactInhibitionInBox() : CxxTest::RealTestDescription( Tests_TestRunningContactInhibitionSimulationsTutorial, suiteDescription_TestRunningContactInhibitionSimulationsTutorial, 252, "TestContactInhibitionInBox" ) {}
  void runTest() { suite_TestRunningContactInhibitionSimulationsTutorial.TestContactInhibitionInBox(); }
 } testDescription_TestRunningContactInhibitionSimulationsTutorial_TestContactInhibitionInBox;
 

@@ -96,7 +96,9 @@ public:
     void ImposeBoundaryCondition(const std::map<Node<2>*, c_vector<double, 2> >& rOldLocations)
     {
         // specify the domains parameters. For square structues, the radius is actually the half length
-        double domainRadius = 50.0;
+        double domainRadius = 20.0;
+        double height_space = sqrt(0.75);
+
         double magPoint;
         // Iterate through cell population and enforce each cell be inside the domain
         for (AbstractCellPopulation<2>::Iterator cell_iter = this->mpCellPopulation->Begin();
@@ -109,11 +111,11 @@ public:
             double x_coordinate = p_node->rGetLocation()[0];            
 
             //Box 'domainRadius' x 'domainRadius'
-            if (y_coordinate > domainRadius)
+            if (y_coordinate > domainRadius*height_space)
             {
                 p_node->rGetModifiableLocation()[1] = domainRadius;
             }
-            else if (y_coordinate < -1.0*domainRadius)
+            else if (y_coordinate < -1.0*domainRadius*height_space)
             {
                 p_node->rGetModifiableLocation()[1] = -1.0*domainRadius;
             }
@@ -163,7 +165,9 @@ public:
     bool VerifyBoundaryCondition()
     {
         bool condition_satisfied = true;
-        double domainRadius = 50.0;
+        double domainRadius = 20.0;
+        double height_space = sqrt(0.75);
+
         double magPoint;
         for (AbstractCellPopulation<2>::Iterator cell_iter = this->mpCellPopulation->Begin();
              cell_iter != this->mpCellPopulation->End();
@@ -184,12 +188,12 @@ public:
             
 
             //Toroidal or box domain 'domainRadius' x 'domainRadius'
-            if ((y_coordinate < -1.0*domainRadius) || (y_coordinate > domainRadius))
+            if ((y_coordinate < -1.0*domainRadius) || (y_coordinate > domainRadius*height_space))
             {
                 condition_satisfied = false;
                 break;
             }
-            if ((x_coordinate < -1.0*domainRadius) || (x_coordinate > domainRadius))
+            if ((x_coordinate < -1.0*domainRadius) || (x_coordinate > domainRadius*height_space))
             {
                 condition_satisfied = false;
                 break;
